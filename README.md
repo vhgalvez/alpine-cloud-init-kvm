@@ -194,3 +194,46 @@ Puedes marcar la imagen como solo lectura para evitar modificaciones accidentale
 bash
 Copiar código
 chmod 444 /mnt/lv_data/organized_storage/images/alpine-template-base.qcow2
+
+
+
+sudo qemu-img convert -O qcow2 /mnt/lv_data/organized_storage/images/alpine-template.img /mnt/lv_data/organized_storage/images/alpine-template-base.qcow2
+
+
+1. Apagar la máquina virtual
+Primero, apágala de manera controlada:
+
+bash
+Copiar código
+sudo virsh shutdown alpine-template
+Comprueba el estado nuevamente:
+
+bash
+Copiar código
+sudo virsh list --all
+Si el estado aún muestra "ejecutando", fuerza el apagado:
+
+bash
+Copiar código
+sudo virsh destroy alpine-template
+2. Undefine (opcional)
+Si deseas liberar completamente la configuración de la máquina virtual:
+
+bash
+Copiar código
+sudo virsh undefine alpine-template
+Esto eliminará la definición de la máquina virtual, pero no afectará el disco de la VM.
+
+3. Convertir la imagen
+Ahora que la máquina está apagada, realiza la conversión de la imagen:
+
+bash
+Copiar código
+sudo qemu-img convert -O qcow2 /mnt/lv_data/organized_storage/images/alpine-template.img /mnt/lv_data/organized_storage/images/alpine-template-base.qcow2
+4. Verifica que la conversión fue exitosa
+Comprueba si la nueva plantilla fue creada correctamente:
+
+bash
+Copiar código
+ls -lh /mnt/lv_data/organized_storage/images/alpine-template-base.qcow2
+Con estos pasos deberías poder liberar el recurso y crear tu plantilla base
