@@ -34,7 +34,7 @@ sudo virt-install \
 --name alpine-template \
 --ram 512 \
 --vcpus 1 \
---disk path=/mnt/lv_data/organized_storage/images/alpine-template.img,size=20,format=qcow2 \
+--disk path=/mnt/lv_data/organized_storage/images/alpine-template-new.img,size=20,format=qcow2 \
 --cdrom /mnt/lv_data/organized_storage/images/alpine-virt-3.20.3-x86_64.iso \
 --os-variant generic \
 --network network=default \
