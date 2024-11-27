@@ -67,3 +67,7 @@ curl -o /mnt/lv_data/organized_storage/images/alpine-virt-3.20.3-x86_64.iso.sha2
 
 sha256sum /mnt/lv_data/organized_storage/images/alpine-virt-3.20.3-x86_64.iso
 cat /mnt/lv_data/organized_storage/images/alpine-virt-3.20.3-x86_64.iso.sha256
+
+
+sudo chmod +x create_vm.sh
+sudo ./create_vm.sh

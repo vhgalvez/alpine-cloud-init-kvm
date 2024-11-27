@@ -9,7 +9,7 @@ fi
 # Comprueba si la red 'default' está activa, de lo contrario la activa
 if ! virsh net-info default &>/dev/null; then
     echo "Creando y activando la red 'default'..."
-  cat <<EOF > default.xml
+    cat <<EOF > default.xml
 <network>
   <name>default</name>
   <uuid>e56a72b3-87af-4d77-9270-25214c6ed75c</uuid>
@@ -34,7 +34,7 @@ sudo virt-install \
 --name alpine-template \
 --ram 512 \
 --vcpus 1 \
---disk path=/mnt/lv_data/organized_storage/images/alpine-template.img,size=2,format=qcow2 \
+--disk path=/mnt/lv_data/organized_storage/images/alpine-template.img,size=20,format=qcow2 \
 --cdrom /mnt/lv_data/organized_storage/images/alpine-virt-3.20.3-x86_64.iso \
 --os-variant generic \
 --network network=default \
